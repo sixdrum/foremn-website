@@ -10,10 +10,10 @@
         :root { --bg: #fff; --text: #212529; --accent: #0d6efd; --section-bg: #f8f9fa; }
         [data-bs-theme="dark"] { --bg: #212529; --text: #fff; --accent: #0dcaf0; --section-bg: #343a40; }
         body { background: var(--bg); color: var(--text); transition: all 0.3s; }
-        .hero { background: linear-gradient(135deg, var(--accent), #198754); color: white; padding: 100px 0; }
+        .hero, footer { background: linear-gradient(135deg, var(--accent), #198754); color: white; }
+        .hero { padding-top: 100px; padding-bottom: 60px; } /* Increased top padding to 100px, kept bottom at 60px */
         .skill-card { transition: transform 0.2s; }
         .skill-card:hover { transform: translateY(-5px); }
-        footer { background: var(--accent); color: white; }
         .bg-adaptive { background: var(--section-bg); }
     </style>
 </head>
@@ -123,13 +123,13 @@
             <a href="mailto:justin@fore.mn" class="btn btn-primary btn-lg">Reach Out</a>
         </div>
     </section>
-
     <footer class="py-3 text-center">
-        <p>&copy; Justin Foreman. Built with Bootstrap.</p>
+        <p>&copy; <span id="currentYear"></span> Justin Foreman. Built with Bootstrap.</p>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
         const toggle = document.getElementById('themeToggle');
         toggle.addEventListener('click', () => {
             const body = document.body;
